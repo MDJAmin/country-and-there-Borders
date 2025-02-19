@@ -12,7 +12,7 @@ body {
   padding-top: 30px;
 }
 input {
-    color: white !important;
+  color: white !important;
   background-color: #4f6877;
   display: block;
   padding: 8px 20px 5px 10px;
@@ -35,23 +35,24 @@ button {
   font-weight: bold;
   transition: all 0.5s;
 }
-button:hover{
-    scale: 1.1;
-    border-radius: 5px;
+button:hover {
+  scale: 1.1;
+  border-radius: 5px;
 }
-body h2,h3 {
+body h2,
+h3 {
   text-align: center;
   margin: 40px 0;
 }
-h3{
-    font-size: 1.6em;
+h3 {
+  font-size: 1.6em;
 }
 input:focus {
   scale: 1.1;
 }
 
 hr {
-    height: 4px;
+  height: 4px;
 }
 .card {
   width: 300px;
@@ -63,8 +64,8 @@ hr {
   transition: all 0.5s;
   cursor: pointer;
 }
-.card:hover{
-    scale: 1.1;
+.card:hover {
+  scale: 1.1;
 }
 .card img {
   width: 100%;
