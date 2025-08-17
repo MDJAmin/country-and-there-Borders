@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
   color: #fff;
@@ -11,6 +12,7 @@ body {
   background-color: #374954;
   padding-top: 30px;
 }
+
 input {
   color: white !important;
   background-color: #4f6877;
@@ -24,6 +26,11 @@ input {
   transition: all 0.5s;
   margin-bottom: 10px;
 }
+
+input:focus {
+  scale: 1.1;
+}
+
 button {
   background-color: #ea1010;
   width: 300px;
@@ -35,53 +42,127 @@ button {
   font-weight: bold;
   transition: all 0.5s;
 }
+
 button:hover {
   scale: 1.1;
   border-radius: 5px;
 }
+
 body h2,
 h3 {
   text-align: center;
   margin: 40px 0;
 }
+
 h3 {
   font-size: 1.6em;
-}
-input:focus {
-  scale: 1.1;
 }
 
 hr {
   height: 4px;
 }
-.card {
-  width: 300px;
-  height: 350px;
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 50px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-.card:hover {
-  scale: 1.1;
-}
-.card img {
-  width: 100%;
-  height: 60%;
-}
-.card h2 {
-  margin: 20px 0px;
-  text-align: center;
-}
-.card p {
-  text-align: center;
-}
+
 #borders {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+/* ---------- Card Flip Styles ---------- */
+.card {
+  width: 300px;
+  height: 350px;
+  perspective: 1000px; /* enables 3D effect */
+  margin-bottom: 50px;
+  position: relative;
+  line-height: 25px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  border-radius: 20px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front img {
+  user-select: none;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  background: #4f6877;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.card-front h2,
+.card-front p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back h3 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.card-back p {
+  margin: 5px 0;
+}
+
+/* Corner button (on both sides) */
+.corner-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: rgba(234, 16, 16, 0.8);
+  border-top-left-radius: 100% 100%;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corner-btn::after {
+  content: "↺";
+  color: white;
+  font-size: 1.8em;
+  position: relative;
+  left: 5px;
+  top: 5px;
 }
