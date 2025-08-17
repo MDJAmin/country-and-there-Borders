@@ -166,3 +166,33 @@ hr {
   left: 5px;
   top: 5px;
 }
+
+.MDJAminDiv {
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  right: 50%;
+}
+
+.MDJAmin {
+  text-decoration: none;
+  border-bottom: 1px dashed rgb(204, 204, 204);
+  border-top: 1px dashed rgb(204, 204, 204);
+  /* border-bottom: 1px dashed rgb(44, 44, 44); */
+  /* border-top: 1px dashed rgb(44, 44, 44); */
+  padding: 4px 0;
+  /* color: rgba(44, 44, 44, 0.525); */
+  color: rgba(204, 204, 204, 0.414);
+  font-family: monospace;
+  font-style: italic;
+  font-size: 1.1em;
+  transition: all 0.5s;
+}
+
+.MDJAmin:hover {
+  /* color: #000000; */
+  color: white;
+}
